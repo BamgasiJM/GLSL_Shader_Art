@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebGL2 Shader Playground</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="errBox"></div>
+
+    <div class="container">
+      <canvas id="canvas" width="640" height="640"></canvas>
+
+      <div class="controls-panel">
+        <div class="control-group color-group">
+          <div class="color-display">
+            <div id="colorSwatch"></div>
+          </div>
+          <input
+            type="color"
+            id="colorPicker"
+            value="#ff6b6b"
+            class="color-input"
+          />
+        </div>
+
+        <div class="control-group rotation-group">
+          <div class="rotation-header">
+            <label for="rotSlider">Rotation</label>
+            <span id="rotVal" class="rotation-value">0°</span>
+          </div>
+          <input
+            type="range"
+            id="rotSlider"
+            min="0"
+            max="360"
+            value="0"
+            class="slider"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

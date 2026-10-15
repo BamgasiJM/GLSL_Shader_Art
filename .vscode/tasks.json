@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build OpenGL Shader Art",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/OpenGL/OpenGL_Shader_Art_001/tools/build.ps1", "-Art", "${input:buildArt}"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$msCompile"]
+    },
+    {
+      "label": "Build All OpenGL Artworks",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/OpenGL/OpenGL_Shader_Art_001/tools/build.ps1"],
+      "problemMatcher": ["$msCompile"]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "buildArt",
+      "type": "promptString",
+      "description": "빌드할 작품 이름 (예: Art_001, Art_002)",
+      "default": "Art_001"
+    }
+  ]
+}

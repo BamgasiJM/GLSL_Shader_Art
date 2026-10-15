@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 전체 페이지 레이아웃 설정 */
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;     /* 세로 중앙 정렬 */
+  background-color: #332b3e;
+  overflow: hiddenl        /* 스크롤바 방지 */
+}
+
+/* 캔버스 스타일 */
+#webgl_canvas {
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 6px solid #706e7b;
+  background-color: #000;
+}

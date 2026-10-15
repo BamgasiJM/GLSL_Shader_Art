@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #d4d4ed 0%, #1b1b25 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color: #e8e8f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+canvas {
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: #0a0a14;
+}
+
+/* ── 컨트롤 패널 ── */
+.controls-panel {
+  display: flex;
+  gap: 48px;
+  padding: 32px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── 색상 컨트롤 ── */
+.color-group {
+  align-items: center;
+  gap: 20px;
+}
+
+.color-display {
+  position: relative;
+}
+
+#colorSwatch {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: #ff6b6b;
+  box-shadow:
+    0 8px 24px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#colorSwatch:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 32px rgba(255, 107, 107, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.color-input {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  pointer-events: auto;
+}
+
+/* ── 회전 컨트롤 ── */
+.rotation-group {
+  min-width: 240px;
+}
+
+.rotation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rotation-header label {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #a8a8b8;
+}
+
+.rotation-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 슬라이더 커스텀 스타일 ── */
+.slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2)
+  );
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* webkit 썸 스타일 */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-35%);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow:
+    0 6px 20px rgba(255, 255, 255, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+  box-shadow:
+    0 4px 12px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* moz 썸 스타일 */
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow:
+    0 6px 20px rgba(255, 255, 255, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.slider::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2)
+  );
+  height: 6px;
+  border-radius: 3px;
+  border: none;
+}
+
+/* ── 에러 박스 ── */
+#errBox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(100, 30, 30, 0.95);
+  color: #ff9999;
+  padding: 16px 24px;
+  z-index: 999;
+  font-size: 13px;
+  white-space: pre-wrap;
+  max-height: 50vh;
+  overflow: auto;
+  border-bottom: 2px solid rgba(255, 107, 107, 0.5);
+  line-height: 1.5;
+  backdrop-filter: blur(8px);
+}
+
+/* ── 레스폰시브 ── */
+@media (max-width: 768px) {
+  .container {
+    gap: 20px;
+    padding: 16px;
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .controls-panel {
+    flex-direction: column;
+    gap: 28px;
+    padding: 24px 28px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .rotation-group {
+    min-width: auto;
+  }
+}
+
+/* ── 포커스 스타일 ── */
+.slider:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+/* ── 감소된 모션 ── */
+@media (prefers-reduced-motion: reduce) {
+  #colorSwatch,
+  .slider::-webkit-slider-thumb,
+  .slider::-moz-range-thumb {
+    transition: none;
+  }
+
+  #colorSwatch:hover {
+    transform: none;
+  }
+
+  .slider::-webkit-slider-thumb:hover {
+    transform: none;
+  }
+}

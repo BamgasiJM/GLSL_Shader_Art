@@ -1,0 +1,69 @@
+# CMake and native build directories (at any depth)
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+/OpenGL/**/out/
+
+# Compiled programs and intermediate files
+*.exe
+*.obj
+*.o
+*.pdb
+*.ilk
+*.idb
+*.pch
+*.ipch
+*.tlog/
+*.res
+*.exp
+*.iobj
+*.ipdb
+
+# Keep bundled dependencies such as OpenGL/**/lib/glfw3.lib tracked.
+# Keep .vscode/ build/debug settings and artwork screenshots tracked.
+
+# Visual Studio local state
+.vs/
+*.vcxproj.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Web development dependencies, generated output and caches
+node_modules/
+dist/
+coverage/
+.cache/
+.parcel-cache/
+.vite/
+*.tsbuildinfo
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Logs and editor temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
