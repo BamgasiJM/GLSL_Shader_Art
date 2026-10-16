@@ -2,6 +2,14 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Build OpenGL Basic",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/OpenGL/OpenGL_Basic/tools/build.ps1"],
+      "group": "build",
+      "problemMatcher": ["$msCompile"]
+    },
+    {
       "label": "Build OpenGL Shader Art",
       "type": "process",
       "command": "powershell.exe",

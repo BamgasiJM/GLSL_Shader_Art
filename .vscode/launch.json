@@ -2,6 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "OpenGL Basic (MSVC x64 Debug)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/OpenGL/OpenGL_Basic/build/windows-debug/OpenGL_Basic.exe",
+      "cwd": "${workspaceFolder}/OpenGL/OpenGL_Basic/build/windows-debug",
+      "args": [],
+      "preLaunchTask": "Build OpenGL Basic",
+      "externalConsole": false
+    },
+    {
       "name": "OpenGL Shader Art (MSVC x64 Debug)",
       "type": "cppvsdbg",
       "request": "launch",
